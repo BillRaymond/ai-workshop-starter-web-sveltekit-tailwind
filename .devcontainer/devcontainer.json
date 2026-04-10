@@ -1,0 +1,31 @@
+{
+	"name": "SvelteKit Dev Container",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+	"remoteUser": "node",
+	"updateContentCommand": "npm install",
+	"postCreateCommand": "bash .devcontainer/scripts/configure-git.sh",
+	"postStartCommand": "bash .devcontainer/scripts/start-dev-server.sh",
+	"postAttachCommand": "bash .devcontainer/scripts/start-dev-server.sh",
+	"waitFor": "postStartCommand",
+	"mounts": [
+		"source=${localEnv:HOME}/.gitconfig,target=/tmp/local-user.gitconfig,type=bind,readonly"
+	],
+	"forwardPorts": [5173],
+	"portsAttributes": {
+		"5173": {
+			"label": "SvelteKit dev server",
+			"onAutoForward": "openBrowser",
+			"requireLocalPort": false
+		},
+		"5174-5190": {
+			"label": "SvelteKit dev server",
+			"onAutoForward": "openBrowser",
+			"requireLocalPort": false
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": ["anthropic.claude-code", "openai.chatgpt"]
+		}
+	}
+}
