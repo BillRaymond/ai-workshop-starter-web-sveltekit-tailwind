@@ -1,6 +1,9 @@
 {
 	"name": "SvelteKit Dev Container",
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+	"build": {
+		"dockerfile": "../Dockerfile",
+		"target": "dev"
+	},
 	"remoteUser": "node",
 	"updateContentCommand": "npm install",
 	"postCreateCommand": "bash .devcontainer/scripts/configure-git.sh",

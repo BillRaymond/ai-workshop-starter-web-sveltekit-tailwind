@@ -7,12 +7,16 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"docker:dev:build": "docker build --target dev -t week-2-fix-v2-dev .",
+		"docker:dev:run": "docker run --rm -it -p 5173:5173 -v $(pwd):/workspace -w /workspace week-2-fix-v2-dev bash -lc 'npm install && npm run dev -- --host 0.0.0.0 --port 5173'",
+		"docker:prod:build": "docker build --target prod -t week-2-fix-v2 .",
+		"docker:prod:run": "docker run --rm -p 3000:3000 week-2-fix-v2",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^7.0.1",
+		"@sveltejs/adapter-node": "^5.5.4",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/vite": "^4.2.2",
