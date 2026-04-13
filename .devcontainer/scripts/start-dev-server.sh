@@ -90,7 +90,31 @@ command_matches() {
 }
 
 ensure_dependencies() {
+	local needs_install=0
+	local needs_repair=0
+
 	if [[ ! -d "$workspace_dir/node_modules" ]]; then
+		needs_install=1
+	fi
+
+	if [[ ! -x "$workspace_dir/node_modules/.bin/vite" ]]; then
+		needs_install=1
+	fi
+
+	# We've seen interrupted installs leave @sveltejs/kit half-extracted, which
+	# breaks the devcontainer open flow because Vite exits during postStart.
+	if [[ ! -f "$workspace_dir/node_modules/@sveltejs/kit/src/cli.js" ]]; then
+		needs_repair=1
+	fi
+
+	if [[ ! -f "$workspace_dir/node_modules/@sveltejs/kit/src/utils/filesystem.js" ]]; then
+		needs_repair=1
+	fi
+
+	if [[ "$needs_repair" -eq 1 ]]; then
+		echo "Detected an incomplete SvelteKit install. Repairing dependencies..." >&2
+		npm --prefix "$workspace_dir" install --force
+	elif [[ "$needs_install" -eq 1 ]]; then
 		npm --prefix "$workspace_dir" install
 	fi
 }
