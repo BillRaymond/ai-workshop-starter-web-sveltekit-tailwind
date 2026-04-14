@@ -37,7 +37,7 @@ npm run preview
 npm run check
 ```
 
-The container startup script prefers port `5173`. If that port is already in use in the container, it automatically selects the next available port and prints the actual port.
+The dev container startup script prefers port `5173`. If that port is already in use in the container, it automatically selects the next available port and prints the actual port.
 
 ## Docker
 
@@ -47,6 +47,8 @@ Build and run the development container image directly:
 npm run docker:dev:build
 npm run docker:dev:run
 ```
+
+The standalone Docker dev runner prefers host port `5173`. If that port is already in use on your computer, it automatically selects the next available port up to `5190` and starts Vite on that same port inside the container.
 
 Build and run the production image locally:
 

@@ -8,7 +8,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"docker:dev:build": "docker build --target dev -t week-2-fix-v2-dev .",
-		"docker:dev:run": "docker run --rm -it -p 5173:5173 -v $(pwd):/workspace -w /workspace week-2-fix-v2-dev bash -lc 'npm install && npm run dev -- --host 0.0.0.0 --port 5173'",
+		"docker:dev:run": "bash ./scripts/docker-dev-run.sh",
 		"docker:prod:build": "docker build --target prod -t week-2-fix-v2 .",
 		"docker:prod:run": "docker run --rm -p 3000:3000 week-2-fix-v2",
 		"prepare": "svelte-kit sync || echo ''",

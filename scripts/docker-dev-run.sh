@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+image_name="week-2-fix-v2-dev"
+workspace_dir="$(pwd)"
+preferred_port=5173
+max_port=5190
+
+find_available_port() {
+	node - "$preferred_port" "$max_port" <<'NODE'
+const net = require('node:net');
+const preferred = Number(process.argv[2]);
+const max = Number(process.argv[3]);
+const host = '127.0.0.1';
+
+const canBind = (port, done) => {
+	const server = net.createServer();
+	server.unref();
+	server.once('error', () => done(false));
+	server.listen({ host, port }, () => {
+		server.close(() => done(true));
+	});
+};
+
+const tryPort = (port) => {
+	if (port > max) {
+		process.exit(1);
+	}
+
+	canBind(port, (available) => {
+		if (available) {
+			console.log(port);
+			return;
+		}
+
+		tryPort(port + 1);
+	});
+};
+
+tryPort(preferred);
+NODE
+}
+
+if ! port="$(find_available_port)"; then
+	echo "Unable to find an open host port between $preferred_port and $max_port." >&2
+	exit 1
+fi
+
+echo "Starting dev container on http://localhost:$port"
+
+exec docker run --rm -it \
+	-p "$port:$port" \
+	-v "$workspace_dir:/workspace" \
+	-w /workspace \
+	"$image_name" \
+	bash -lc "npm install && npm run dev -- --host 0.0.0.0 --port $port"
