@@ -1,5 +1,9 @@
 # Deterministic VS Code Dev Container Build Prompt
 
+This environment was originally created from the prompt below, then refined through additional prompts and iteration in ChatGPT and Claude until it was ready for use.
+
+This document is included for reference only and is not required in order to use this environment.
+
 You are building a complete, ready-to-run SvelteKit development environment in a VS Code Dev Container. Do not ask clarifying questions. Follow this specification exactly. Recreate the working repository pattern described here instead of inventing a different container architecture.
 
 ## Editable Defaults
