@@ -23,10 +23,6 @@ Everything you need to start building a website from scratch, including:
 4. Wait for the container setup to finish.
 5. Open the forwarded app port in your browser when prompted.
 
-## If You Are Working Outside The Container
-
-This project expects Node `22`. The included [`.nvmrc`](./.nvmrc) file reflects that version.
-
 ## Troubleshooting
 
 - Make sure Docker Desktop is running before reopening in the container.
@@ -36,5 +32,6 @@ This project expects Node `22`. The included [`.nvmrc`](./.nvmrc) file reflects 
 
 ## Technical Details
 
-Technical setup and container implementation notes are in [TECHNICAL_SETUP.md](./TECHNICAL_SETUP.md).
-This environment was originally built from a prompt, then refined through additional prompting and iteration. You can review that original prompt in [DEVCONTAINER_BUILD_PROMPT.md](./DEVCONTAINER_BUILD_PROMPT.md).
+- Technical setup and container implementation notes are in [TECHNICAL_SETUP.md](./TECHNICAL_SETUP.md).
+- This environment was originally built from a prompt, then refined through additional prompting and iteration.
+- You can review that original prompt used to create the structure for this environment in [DEVCONTAINER_BUILD_PROMPT.md](./DEVCONTAINER_BUILD_PROMPT.md).

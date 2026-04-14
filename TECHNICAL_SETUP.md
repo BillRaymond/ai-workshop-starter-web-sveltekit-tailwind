@@ -29,6 +29,8 @@ The Dev Container will:
 
 ## Development
 
+If you are working outside the container, this project expects Node `22`. The included [`.nvmrc`](./.nvmrc) file reflects that version.
+
 The app follows standard SvelteKit commands:
 
 ```sh
