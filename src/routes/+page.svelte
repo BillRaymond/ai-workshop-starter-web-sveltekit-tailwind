@@ -54,7 +54,7 @@
 				<ul class="mt-4 space-y-3 text-sm leading-6 text-stone-700">
 					<li>Update the site title, description, favicon, and social metadata.</li>
 					<li>Replace this starter page with your own routes and components.</li>
-					<li>Enable GitHub Pages in your repository settings after creating the repo.</li>
+					<li>Push to main. GitHub Pages is enabled automatically on first deploy.</li>
 				</ul>
 			</div>
 		</section>
