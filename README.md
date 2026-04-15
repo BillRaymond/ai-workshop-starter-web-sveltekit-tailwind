@@ -15,6 +15,17 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 - GitHub Actions deployment to GitHub Pages
 - dynamic dev-port fallback behavior that works well in VS Code and containers
 
+## Using This Template
+
+1. Click **Use this template** on the GitHub repository page and choose **Create a new repository**.
+2. Name your repository. Use `yourusername.github.io` if you want the site at your root GitHub Pages domain; use any other name for a project page at `https://yourusername.github.io/your-repo-name/`.
+3. Set visibility to **Public** (required for GitHub Pages on free accounts).
+4. Click **Create repository from template**.
+5. In your new repository, go to **Settings → Pages**, set **Source** to **GitHub Actions**, and save.
+6. Clone your new repo, open it in VS Code, and run **Dev Containers: Reopen in Container**.
+7. Customize `src/routes/+page.svelte`, the page title and description, and `static/favicon.png`.
+8. Push to `main`. The deploy workflow runs automatically and publishes your site.
+
 ## Recommended Setup
 
 1. Click `Use this template` on GitHub to create your own repository.
@@ -36,6 +47,7 @@ This template is intended for static-site deployment on GitHub Pages.
 
 ## After Using This Template
 
+- Remove or replace the attribution line near the top of this README.
 - Replace the starter page, metadata, social metadata, images, and favicon with your own before launch.
 - Update the package metadata only if you want a different package name than the neutral default.
 - Keep the included MIT license if it fits your project, or replace it with a different license if your needs differ.
