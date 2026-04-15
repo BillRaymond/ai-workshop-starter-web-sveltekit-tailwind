@@ -21,9 +21,10 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 2. Name your repository. Use `yourusername.github.io` if you want the site at your root GitHub Pages domain; use any other name for a project page at `https://yourusername.github.io/your-repo-name/`.
 3. Set visibility to **Public** (required for GitHub Pages on free accounts).
 4. Click **Create repository from template**.
-5. Clone your new repo, open it in VS Code, and run **Dev Containers: Reopen in Container**.
-6. Customize `src/routes/+page.svelte`, the page title and description, and `static/favicon.png`.
-7. Push to `main`. The deploy workflow runs automatically, enables GitHub Pages, and publishes your site.
+5. In your new repository, go to **Settings → Pages**, set **Source** to **GitHub Actions**, and save.
+6. Clone your new repo, open it in VS Code, and run **Dev Containers: Reopen in Container**.
+7. Customize `src/routes/+page.svelte`, the page title and description, and `static/favicon.png`.
+8. Push to `main`. The deploy workflow runs automatically and publishes your site.
 
 ## Recommended Setup
 
