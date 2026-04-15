@@ -4,11 +4,14 @@ This repository is a GitHub template for building and publishing a static site w
 
 It is designed to be forked, renamed, and repurposed without carrying forward workshop branding or repo-specific deployment assumptions.
 
+Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with the tagline `AI Agility in Action`.
+
 ## What This Template Includes
 
 - SvelteKit with the static adapter configured for GitHub Pages
 - Svelte 5, Tailwind CSS 4, Vite, and Node 22
 - a VS Code Dev Container workflow for consistent local development
+- a dedicated CI workflow for build and type-check validation on branches and pull requests
 - GitHub Actions deployment to GitHub Pages
 - dynamic dev-port fallback behavior that works well in VS Code and containers
 
@@ -33,8 +36,9 @@ This template is intended for static-site deployment on GitHub Pages.
 
 ## After Using This Template
 
-- Replace the starter page, metadata, images, and favicon with your own.
+- Replace the starter page, metadata, social metadata, images, and favicon with your own before launch.
 - Update the package metadata only if you want a different package name than the neutral default.
+- Keep the included MIT license if it fits your project, or replace it with a different license if your needs differ.
 - Enable and verify GitHub Pages in your new repository settings.
 
 ## Local Commands
