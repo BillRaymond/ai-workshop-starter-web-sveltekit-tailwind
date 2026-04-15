@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-image_name="week-2-fix-v2-dev"
+image_name="ai-workshop-starter-web-sveltekit-tailwind-dev"
 workspace_dir="$(pwd)"
 preferred_port=5173
 max_port=5190
