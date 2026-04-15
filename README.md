@@ -1,27 +1,57 @@
-# AI Workshop: Code and Automate with AI
+# SvelteKit + Tailwind GitHub Pages Template
 
-This repository is a starter environment for the Cambermast course [AI Workshop: Code and Automate with AI](https://www.cambermast.com/training/ai-workshop-code-and-automate-with-ai).
+This repository is a GitHub template for building and publishing a static site with SvelteKit, Tailwind CSS, VS Code Dev Containers, and GitHub Pages.
 
-It is set up so you can get started quickly with a consistent development environment using VS Code Dev Containers. The goal is to reduce setup problems and give everyone the same starting point.
+It is designed to be forked, renamed, and repurposed without carrying forward workshop branding or repo-specific deployment assumptions.
 
-## What This Includes
+## What This Template Includes
 
-Everything you need to start building a website from scratch, including:
-
-- a modern frontend web stack built with SvelteKit, Svelte 5, Tailwind CSS 4, and Node 22
-- a SvelteKit project starter
-- npm for package management
-- a VS Code Dev Container for a consistent development environment
-- Docker-based setup for local development and deployment
-- Git-friendly project structure for saving and sharing your work
+- SvelteKit with the static adapter configured for GitHub Pages
+- Svelte 5, Tailwind CSS 4, Vite, and Node 22
+- a VS Code Dev Container workflow for consistent local development
+- GitHub Actions deployment to GitHub Pages
+- dynamic dev-port fallback behavior that works well in VS Code and containers
 
 ## Recommended Setup
 
-1. Clone this repository.
-2. Open the folder in VS Code.
-3. Run `Dev Containers: Reopen in Container`.
-4. Wait for the container setup to finish.
-5. Open the forwarded app port in your browser when prompted.
+1. Click `Use this template` on GitHub to create your own repository.
+2. Clone your new repository.
+3. Open the folder in VS Code.
+4. Run `Dev Containers: Reopen in Container`.
+5. Wait for the container setup to finish.
+6. Open the forwarded app port in your browser when prompted.
+
+If port `5173` is already in use, the dev startup script automatically selects the next available port. Use the VS Code Ports tab to open the running site.
+
+## Deployment Model
+
+This template is intended for static-site deployment on GitHub Pages.
+
+- `@sveltejs/adapter-static` is the production adapter
+- `.github/workflows/deploy-pages.yml` builds and deploys the site to GitHub Pages
+- the workflow automatically sets `BASE_PATH` so both project pages and user/organization pages work correctly
+
+## After Using This Template
+
+- Replace the starter page, metadata, images, and favicon with your own.
+- Update the package metadata only if you want a different package name than the neutral default.
+- Enable and verify GitHub Pages in your new repository settings.
+
+## Local Commands
+
+```sh
+npm install
+npm run dev
+npm run build
+npm run check
+```
+
+If you want to build and run the dev image directly outside VS Code:
+
+```sh
+npm run docker:dev:build
+npm run docker:dev:run
+```
 
 ## Troubleshooting
 
@@ -29,9 +59,8 @@ Everything you need to start building a website from scratch, including:
 - The first container build can take a few minutes.
 - If you do not see the running site, check the VS Code Ports view.
 - If the container gets into a bad state, try `Dev Containers: Rebuild Container`.
+- Manual deploys are available through the `Deploy to GitHub Pages` workflow if you want to publish before your first push to the default branch.
 
-## Technical Details
+## Technical Notes
 
-- Technical setup and container implementation notes are in [TECHNICAL_SETUP.md](./TECHNICAL_SETUP.md).
-- This environment was originally built from a prompt, then refined through additional prompting and iteration.
-- You can review that original prompt used to create the structure for this environment in [DEVCONTAINER_BUILD_PROMPT.md](./DEVCONTAINER_BUILD_PROMPT.md).
+More setup details are in [TECHNICAL_SETUP.md](./TECHNICAL_SETUP.md).

@@ -2,10 +2,38 @@
 
 set -euo pipefail
 
-image_name="ai-workshop-starter-web-sveltekit-tailwind-dev"
 workspace_dir="$(pwd)"
 preferred_port=5173
 max_port=5190
+
+resolve_image_name() {
+	node <<'NODE'
+const fs = require('node:fs');
+const path = require('node:path');
+
+const workspaceDir = process.cwd();
+const packageJsonPath = path.join(workspaceDir, 'package.json');
+
+const sanitize = (value) =>
+	value
+		.toLowerCase()
+		.replace(/[^a-z0-9._-]+/g, '-')
+		.replace(/^-+|-+$/g, '') || 'sveltekit-dev';
+
+let baseName = path.basename(workspaceDir);
+
+if (fs.existsSync(packageJsonPath)) {
+	try {
+		const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+		if (typeof packageJson.name === 'string' && packageJson.name.trim()) {
+			baseName = packageJson.name;
+		}
+	} catch {}
+}
+
+console.log(`${sanitize(baseName)}-dev`);
+NODE
+}
 
 find_available_port() {
 	node - "$preferred_port" "$max_port" <<'NODE'
@@ -46,6 +74,8 @@ if ! port="$(find_available_port)"; then
 	echo "Unable to find an open host port between $preferred_port and $max_port." >&2
 	exit 1
 fi
+
+image_name="$(resolve_image_name)"
 
 echo "Starting dev container on http://localhost:$port"
 

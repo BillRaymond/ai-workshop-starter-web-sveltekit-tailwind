@@ -1,5 +1,5 @@
 {
-	"name": "ai-workshop-starter-web-sveltekit-tailwind",
+	"name": "sveltekit-tailwind-pages-template",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
@@ -7,16 +7,13 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"docker:dev:build": "docker build --target dev -t ai-workshop-starter-web-sveltekit-tailwind-dev .",
+		"docker:dev:build": "bash ./scripts/docker-dev-build.sh",
 		"docker:dev:run": "bash ./scripts/docker-dev-run.sh",
-		"docker:prod:build": "docker build --target prod -t ai-workshop-starter-web-sveltekit-tailwind .",
-		"docker:prod:run": "docker run --rm -p 3000:3000 ai-workshop-starter-web-sveltekit-tailwind",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-node": "^5.5.4",
 		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",

@@ -1,5 +1,5 @@
 {
-	"name": "SvelteKit Dev Container",
+	"name": "SvelteKit Template Dev Container",
 	"build": {
 		"dockerfile": "../Dockerfile",
 		"target": "dev"
@@ -28,7 +28,11 @@
 	},
 	"customizations": {
 		"vscode": {
-			"extensions": ["anthropic.claude-code", "openai.chatgpt"]
+			"extensions": [
+				"svelte.svelte-vscode",
+				"bradlc.vscode-tailwindcss",
+				"ms-vscode-remote.remote-containers"
+			]
 		}
 	}
 }

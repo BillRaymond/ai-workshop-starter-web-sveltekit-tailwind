@@ -1,6 +1,7 @@
 {
 	"recommendations": [
-		"anthropic.claude-code",
-		"openai.chatgpt"
+		"svelte.svelte-vscode",
+		"bradlc.vscode-tailwindcss",
+		"ms-vscode-remote.remote-containers"
 	]
 }
