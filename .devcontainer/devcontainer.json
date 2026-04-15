@@ -1,38 +1,34 @@
 {
-	"name": "SvelteKit Template Dev Container",
-	"build": {
-		"dockerfile": "../Dockerfile",
-		"target": "dev"
-	},
-	"remoteUser": "node",
-	"updateContentCommand": "npm install",
-	"postCreateCommand": "bash .devcontainer/scripts/configure-git.sh",
-	"postStartCommand": "bash .devcontainer/scripts/start-dev-server.sh",
-	"postAttachCommand": "bash .devcontainer/scripts/start-dev-server.sh",
-	"waitFor": "postStartCommand",
-	"mounts": [
-		"source=${localEnv:HOME}/.gitconfig,target=/tmp/local-user.gitconfig,type=bind,readonly"
-	],
-	"forwardPorts": [5173],
-	"portsAttributes": {
-		"5173": {
-			"label": "SvelteKit dev server",
-			"onAutoForward": "openBrowser",
-			"requireLocalPort": false
-		},
-		"5174-5190": {
-			"label": "SvelteKit dev server",
-			"onAutoForward": "openBrowser",
-			"requireLocalPort": false
-		}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"svelte.svelte-vscode",
-				"bradlc.vscode-tailwindcss",
-				"ms-vscode-remote.remote-containers"
-			]
-		}
-	}
+  "name": "SvelteKit Template Dev Container",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "target": "dev"
+  },
+  "remoteUser": "node",
+  "updateContentCommand": "npm install",
+  "postStartCommand": "bash .devcontainer/scripts/start-dev-server.sh",
+  "postAttachCommand": "bash .devcontainer/scripts/start-dev-server.sh",
+  "waitFor": "postStartCommand",
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "SvelteKit dev server",
+      "onAutoForward": "openBrowser",
+      "requireLocalPort": false
+    },
+    "5174-5190": {
+      "label": "SvelteKit dev server",
+      "onAutoForward": "openBrowser",
+      "requireLocalPort": false
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "svelte.svelte-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode-remote.remote-containers"
+      ]
+    }
+  }
 }
