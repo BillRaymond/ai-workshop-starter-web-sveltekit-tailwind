@@ -15,27 +15,46 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 - GitHub Actions deployment to GitHub Pages
 - dynamic dev-port fallback behavior that works well in VS Code and containers
 
-## Using This Template
+## One-Time Setup
 
-1. Click **Use this template** on the GitHub repository page and choose **Create a new repository**.
-2. Name your repository. Use `yourusername.github.io` if you want the site at your root GitHub Pages domain; use any other name for a project page at `https://yourusername.github.io/your-repo-name/`.
-3. Set visibility to **Public** (required for GitHub Pages on free accounts).
-4. Click **Create repository from template**.
-5. In your new repository, go to **Settings → Pages**, set **Source** to **GitHub Actions**, and save.
-6. Clone your new repo, open it in VS Code, and run **Dev Containers: Reopen in Container**.
-7. Customize `src/routes/+page.svelte`, the page title and description, and `static/favicon.png`.
-8. Push to `main`. The deploy workflow runs automatically and publishes your site.
+### 1. Create your repository from the template
 
-## Recommended Setup
+1. Click **Use this template** at the top of this GitHub repository page.
+2. Choose **Create a new repository**.
+3. Name your repository.
+   - Use `yourusername.github.io` to publish at `https://yourusername.github.io/`.
+   - Use any other name to publish at `https://yourusername.github.io/your-repo-name/`.
+4. Set visibility to **Public** (required for GitHub Pages on free accounts).
+5. Click **Create repository from template**.
 
-1. Click `Use this template` on GitHub to create your own repository.
-2. Clone your new repository.
-3. Open the folder in VS Code.
-4. Run `Dev Containers: Reopen in Container`.
-5. Wait for the container setup to finish.
-6. Open the forwarded app port in your browser when prompted.
+### 2. Enable GitHub Pages
 
-If port `5173` is already in use, the dev startup script automatically selects the next available port. Use the VS Code Ports tab to open the running site.
+1. In your new repository on GitHub, click **Settings**.
+2. In the left sidebar, click **Pages**.
+3. Under **Source**, select **GitHub Actions**.
+4. Click **Save**.
+
+### 3. Clone the repository
+
+```sh
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+```
+
+### 4. Open in VS Code with the Dev Container
+
+1. Open VS Code.
+2. If prompted, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+3. Open the cloned folder: **File → Open Folder**.
+4. When VS Code prompts to reopen in a container, click **Reopen in Container**. If the prompt does not appear, open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **Dev Containers: Reopen in Container**.
+5. Wait for the container to build and the dev server to start. This may take a few minutes on the first run.
+6. When the forwarded port notification appears, click **Open in Browser** to view the running site. If you miss the prompt, open the **Ports** tab in the VS Code panel and click the globe icon next to the forwarded port.
+
+If port `5173` is already in use, the dev startup script automatically selects the next available port.
+
+### 5. Deploy your site
+
+Push any commit to `main` to trigger the deploy workflow. Your site will be live at the GitHub Pages URL shown in **Settings → Pages** after the workflow completes.
 
 ## Deployment Model
 
