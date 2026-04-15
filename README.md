@@ -6,6 +6,24 @@ It is designed to be forked, renamed, and repurposed without carrying forward wo
 
 Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with the tagline `AI Agility in Action`.
 
+## Table of Contents
+
+- [What This Template Includes](#what-this-template-includes)
+- [One-Time Setup](#one-time-setup)
+  - [1. Create your repository from the template](#1-create-your-repository-from-the-template)
+  - [2. Enable GitHub Pages](#2-enable-github-pages)
+  - [3. Open your repository in VS Code](#3-open-your-repository-in-vs-code)
+  - [4. Start the Dev Container](#4-start-the-dev-container)
+  - [5. Preview your site locally](#5-preview-your-site-locally)
+  - [6. Make your first change](#6-make-your-first-change)
+  - [7. Commit and deploy your site](#7-commit-and-deploy-your-site)
+- [Every time you want to make a change](#every-time-you-want-to-make-a-change)
+- [Deployment Model](#deployment-model)
+- [After Using This Template](#after-using-this-template)
+- [Local Commands](#local-commands)
+- [Troubleshooting](#troubleshooting)
+- [Technical Notes](#technical-notes)
+
 ## What This Template Includes
 
 - SvelteKit with the static adapter configured for GitHub Pages
@@ -19,43 +37,44 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 
 ### 1. Create your repository from the template
 
-1. Click **Use this template** at the top of this GitHub repository page.
+1. Select **Use this template** at the top of this GitHub repository page.
 2. Choose **Create a new repository**.
-3. Name your repository. Keep it simple and lowercase, for example `my-company-website` or `my-portfolio`.
-   - To publish at `https://yourusername.github.io/`, name it `yourusername.github.io` instead.
+3. Name your repository. Keep it simple, lowercase, and use dashes in between each word. For example:
+   `my-company-website` or `my-portfolio`.
 4. Set visibility to **Public** (required for GitHub Pages on free accounts).
-5. Click **Create repository from template**.
+5. Select **Create repository from template**.
 
 ### 2. Enable GitHub Pages
 
-1. In your new repository on GitHub, click **Settings**.
-2. In the left sidebar, click **Pages**.
+1. In your new repository on GitHub, select **Settings**.
+2. In the left sidebar, select **Pages**.
 3. Under **Source**, select **GitHub Actions**.
-4. Click **Save**.
 
 ### 3. Open your repository in VS Code
 
 You will clone your new repository directly to your computer using VS Code. Cloning downloads a full copy of the repository so you can work on it locally.
 
+> **Tip:** Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) in VS Code before following these steps if you have not already.
+
 1. Open VS Code.
-2. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) if you have not already.
-3. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac).
-4. Type **Git: Clone** and press Enter.
-5. Paste your repository URL (for example `https://github.com/yourusername/my-portfolio`) and press Enter.
+2. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac).
+3. Type **Git: Clone** and press Return.
+4. Select **Clone from GitHub** and press Return.
+5. Select the new repository you created from this template.
 6. Choose a folder on your computer to save the repository into.
-7. When VS Code asks if you want to open the cloned repository, click **Open**.
+7. When VS Code asks if you want to open the cloned repository, select **Open**.
 
 ### 4. Start the Dev Container
 
-1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
-2. Type **Dev Containers: Open Folder in Container** and press Enter.
+1. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac).
+2. Type **Dev Containers: Open Folder in Container** and press Return.
 3. Browse to the folder where you cloned the repository and confirm.
 4. Wait for the container to build and the dev server to start. This may take a few minutes the first time.
 
 ### 5. Preview your site locally
 
-1. Open the Command Palette and type **View: Toggle Ports**, then press Enter.
-2. In the **Ports** tab that appears, find the forwarded port entry and click the globe icon to open the running site in your browser.
+1. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac) and type **View: Toggle Ports**, then press Return.
+2. In the **Ports** tab that appears, find the forwarded port entry and select the globe icon to open the running site in your browser.
 
 ### 6. Make your first change
 
@@ -65,23 +84,23 @@ Before publishing, try making a small change to confirm everything is working en
 2. Start a new chat and paste in the contents of `src/routes/+page.svelte` from VS Code.
 3. Ask the AI to make a small visible change, for example: `Add the text "testing to see if github pages works" somewhere on the page`.
 4. Copy the updated code back into `src/routes/+page.svelte` in VS Code.
-5. Open the Command Palette and type **View: Toggle Ports**, then click the globe icon to preview the change in your browser.
+5. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac) and type **View: Toggle Ports**, then select the globe icon to preview the change in your browser.
 
 ### 7. Commit and deploy your site
 
 1. In VS Code, open the **Source Control** panel (the branch icon in the left sidebar).
-2. Enter a short commit message such as `first change` and click **Commit**.
-3. Click **Sync Changes** to push to GitHub.
-4. Go to your repository on GitHub and click the **Actions** tab. Wait for both workflows to show a green checkmark.
+2. Enter a short commit message such as `first change` and select **Commit**.
+3. Select **Sync Changes** to push to GitHub.
+4. Go to your repository on GitHub and select the **Actions** tab. Wait for both workflows to show a green checkmark.
 5. Go to **Settings → Pages** and copy the URL shown under **Your site is live at**.
 6. Open that URL in your browser to confirm your site is published and your change is visible.
 
-### Every time you want to make a change
+## Every time you want to make a change
 
-1. Think about the one thing you want to change before you start.
+1. Think about the one thing you want to change in the website.
 2. Open a new chat in your AI tool and describe that single change.
 3. Apply the suggestion in VS Code and preview it locally using the globe icon in the **Ports** tab.
-4. Commit and sync from the **Source Control** panel.
+4. When you are happy with the changes, prompt your AI tool (Claude or ChatGPT) to commit the changes and sync them to GitHub for you. For example: `Commit the changes you just made and sync to GitHub`.
 5. Wait for the GitHub Actions workflows to complete, then verify the change on your live site.
 
 ## Deployment Model
