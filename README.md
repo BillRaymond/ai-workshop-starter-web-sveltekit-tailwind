@@ -21,9 +21,8 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 
 1. Click **Use this template** at the top of this GitHub repository page.
 2. Choose **Create a new repository**.
-3. Name your repository.
-   - Use `yourusername.github.io` to publish at `https://yourusername.github.io/`.
-   - Use any other name to publish at `https://yourusername.github.io/your-repo-name/`.
+3. Name your repository. Keep it simple and lowercase, for example `my-company-website` or `my-portfolio`.
+   - To publish at `https://yourusername.github.io/`, name it `yourusername.github.io` instead.
 4. Set visibility to **Public** (required for GitHub Pages on free accounts).
 5. Click **Create repository from template**.
 
@@ -34,27 +33,56 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 3. Under **Source**, select **GitHub Actions**.
 4. Click **Save**.
 
-### 3. Clone the repository
+### 3. Open your repository in VS Code
 
-```sh
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-```
-
-### 4. Open in VS Code with the Dev Container
+You will clone your new repository directly to your computer using VS Code. Cloning downloads a full copy of the repository so you can work on it locally.
 
 1. Open VS Code.
-2. If prompted, install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
-3. Open the cloned folder: **File → Open Folder**.
-4. When VS Code prompts to reopen in a container, click **Reopen in Container**. If the prompt does not appear, open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **Dev Containers: Reopen in Container**.
-5. Wait for the container to build and the dev server to start. This may take a few minutes on the first run.
-6. When the forwarded port notification appears, click **Open in Browser** to view the running site. If you miss the prompt, open the **Ports** tab in the VS Code panel and click the globe icon next to the forwarded port.
+2. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) if you have not already.
+3. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac).
+4. Type **Git: Clone** and press Enter.
+5. Paste your repository URL (for example `https://github.com/yourusername/my-portfolio`) and press Enter.
+6. Choose a folder on your computer to save the repository into.
+7. When VS Code asks if you want to open the cloned repository, click **Open**.
 
-If port `5173` is already in use, the dev startup script automatically selects the next available port.
+### 4. Start the Dev Container
 
-### 5. Deploy your site
+1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
+2. Type **Dev Containers: Open Folder in Container** and press Enter.
+3. Browse to the folder where you cloned the repository and confirm.
+4. Wait for the container to build and the dev server to start. This may take a few minutes the first time.
 
-Push any commit to `main` to trigger the deploy workflow. Your site will be live at the GitHub Pages URL shown in **Settings → Pages** after the workflow completes.
+### 5. Preview your site locally
+
+1. Open the Command Palette and type **View: Toggle Ports**, then press Enter.
+2. In the **Ports** tab that appears, find the forwarded port entry and click the globe icon to open the running site in your browser.
+
+### 6. Make your first change
+
+Before publishing, try making a small change to confirm everything is working end to end.
+
+1. Open [ChatGPT](https://chatgpt.com) or [Claude](https://claude.ai) in your browser and log in.
+2. Start a new chat and paste in the contents of `src/routes/+page.svelte` from VS Code.
+3. Ask the AI to make a small visible change, for example: `Add the text "testing to see if github pages works" somewhere on the page`.
+4. Copy the updated code back into `src/routes/+page.svelte` in VS Code.
+5. Open the Command Palette and type **View: Toggle Ports**, then click the globe icon to preview the change in your browser.
+
+### 7. Commit and deploy your site
+
+1. In VS Code, open the **Source Control** panel (the branch icon in the left sidebar).
+2. Enter a short commit message such as `first change` and click **Commit**.
+3. Click **Sync Changes** to push to GitHub.
+4. Go to your repository on GitHub and click the **Actions** tab. Wait for both workflows to show a green checkmark.
+5. Go to **Settings → Pages** and copy the URL shown under **Your site is live at**.
+6. Open that URL in your browser to confirm your site is published and your change is visible.
+
+### Every time you want to make a change
+
+1. Think about the one thing you want to change before you start.
+2. Open a new chat in your AI tool and describe that single change.
+3. Apply the suggestion in VS Code and preview it locally using the globe icon in the **Ports** tab.
+4. Commit and sync from the **Source Control** panel.
+5. Wait for the GitHub Actions workflows to complete, then verify the change on your live site.
 
 ## Deployment Model
 
