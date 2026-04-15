@@ -8,30 +8,31 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 
 ## Table of Contents
 
-- [What This Template Includes](#what-this-template-includes)
-- [One-Time Setup](#one-time-setup)
-  - [1. Create your repository from the template](#1-create-your-repository-from-the-template)
-  - [2. Enable GitHub Pages](#2-enable-github-pages)
-  - [3. Open your repository in VS Code](#3-open-your-repository-in-vs-code)
-  - [4. Start the Dev Container](#4-start-the-dev-container)
-  - [5. Preview your site locally](#5-preview-your-site-locally)
-  - [6. Make your first change](#6-make-your-first-change)
-  - [7. Commit and deploy your site](#7-commit-and-deploy-your-site)
-- [Every time you want to make a change](#every-time-you-want-to-make-a-change)
-- [Deployment Model](#deployment-model)
-- [After Using This Template](#after-using-this-template)
-- [Local Commands](#local-commands)
-- [Troubleshooting](#troubleshooting)
-- [Technical Notes](#technical-notes)
+- [SvelteKit + Tailwind GitHub Pages Template](#sveltekit--tailwind-github-pages-template)
+  - [Table of Contents](#table-of-contents)
+  - [What This Template Includes](#what-this-template-includes)
+  - [One-Time Setup](#one-time-setup)
+    - [1. Create your repository from the template](#1-create-your-repository-from-the-template)
+    - [2. Enable GitHub Pages](#2-enable-github-pages)
+    - [3. Open your repository in VS Code](#3-open-your-repository-in-vs-code)
+    - [4. Start the Dev Container](#4-start-the-dev-container)
+    - [5. Preview your site locally](#5-preview-your-site-locally)
+    - [6. Make your first change](#6-make-your-first-change)
+  - [Every time you want to make a change](#every-time-you-want-to-make-a-change)
+  - [Deployment Model](#deployment-model)
+  - [After Using This Template](#after-using-this-template)
+  - [Local Commands](#local-commands)
+  - [Troubleshooting](#troubleshooting)
+  - [Technical Notes](#technical-notes)
 
 ## What This Template Includes
 
 - SvelteKit with the static adapter configured for GitHub Pages
 - Svelte 5, Tailwind CSS 4, Vite, and Node 22
-- a VS Code Dev Container workflow for consistent local development
-- a dedicated CI workflow for build and type-check validation on branches and pull requests
+- A VS Code Dev Container workflow for consistent local development
+- A dedicated CI workflow for build and type-check validation on branches and pull requests
 - GitHub Actions deployment to GitHub Pages
-- dynamic dev-port fallback behavior that works well in VS Code and containers
+- Dynamic dev-port fallback behavior that works well in VS Code and containers
 
 ## One-Time Setup
 
@@ -80,20 +81,11 @@ You will clone your new repository directly to your computer using VS Code. Clon
 
 Before publishing, try making a small change to confirm everything is working end to end.
 
-1. Open [ChatGPT](https://chatgpt.com) or [Claude](https://claude.ai) in your browser and log in.
-2. Start a new chat and paste in the contents of `src/routes/+page.svelte` from VS Code.
-3. Ask the AI to make a small visible change, for example: `Add the text "testing to see if github pages works" somewhere on the page`.
-4. Copy the updated code back into `src/routes/+page.svelte` in VS Code.
-5. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac) and type **View: Toggle Ports**, then select the globe icon to preview the change in your browser.
-
-### 7. Commit and deploy your site
-
-1. In VS Code, open the **Source Control** panel (the branch icon in the left sidebar).
-2. Enter a short commit message such as `first change` and select **Commit**.
-3. Select **Sync Changes** to push to GitHub.
-4. Go to your repository on GitHub and select the **Actions** tab. Wait for both workflows to show a green checkmark.
-5. Go to **Settings → Pages** and copy the URL shown under **Your site is live at**.
-6. Open that URL in your browser to confirm your site is published and your change is visible.
+1. Open the Claude or ChatGPT extension in VS Code and start a new chat.
+2. Ask the AI to make a small visible change. For example: `Add the following text to the home page: "testing to see if github pages works"`.
+3. Open the Command Palette (`Ctrl+Shift+P` on Windows or `Cmd+Shift+P` on Mac) and type **View: Toggle Ports**, then select the globe icon to preview the change in your browser.
+4. Prompt the AI to commit the change and sync it to GitHub. For example: `Commit the change you just made and sync to GitHub. Check status and wait until it is complete and then provide the url so I can view the page online`.
+5. Save the URL for your live site so you can verify changes moving forward.
 
 ## Every time you want to make a change
 
@@ -109,7 +101,7 @@ This template is intended for static-site deployment on GitHub Pages.
 
 - `@sveltejs/adapter-static` is the production adapter
 - `.github/workflows/deploy-pages.yml` builds and deploys the site to GitHub Pages
-- the workflow automatically sets `BASE_PATH` so both project pages and user/organization pages work correctly
+- The workflow automatically sets `BASE_PATH` so both project pages and user/organization pages work correctly
 
 ## After Using This Template
 
