@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/billrayond/Documents/Repos/ai-workshop-starter-web-sveltekit-tailwind/**)",
+      "Bash(node -e \"const lock = require\\('/Users/billraymond/Documents/Repos/ai-workshop-starter-web-sveltekit-tailwind/package-lock.json'\\); const pkgs = Object.entries\\(lock.packages\\).filter\\(\\([k,v]\\) => v.os || v.cpu\\); pkgs.slice\\(0,30\\).forEach\\(\\([k,v]\\) => console.log\\(k, JSON.stringify\\({os: v.os, cpu: v.cpu}\\)\\)\\);\")",
+      "Bash(node -e \"const lock = require\\('/Users/billraymond/Documents/Repos/ai-workshop-starter-web-sveltekit-tailwind/package-lock.json'\\); const pkgs = Object.entries\\(lock.packages\\).filter\\(\\([k,v]\\) => v.os || v.cpu\\); console.log\\('TOTAL PLATFORM-SPECIFIC PACKAGES:', pkgs.length\\); const grouped = {}; pkgs.forEach\\(\\([k,v]\\) => { const os = \\(v.os || []\\).join\\(','\\) || 'N/A'; grouped[os] = \\(grouped[os] || 0\\) + 1; }\\); console.log\\('By OS:'\\); Object.entries\\(grouped\\).forEach\\(\\([os, count]\\) => console.log\\('  ' + os + ':', count\\)\\);\")",
+      "Bash(grep -rn \"process.platform\\\\|process.env.OS\\\\|WIN32\\\\|win32\\\\|darwin\\\\|linux\" /Users/billraymond/Documents/Repos/ai-workshop-starter-web-sveltekit-tailwind/src /Users/billraymond/Documents/Repos/ai-workshop-starter-web-sveltekit-tailwind/*.ts /Users/billraymond/Documents/Repos/ai-workshop-starter-web-sveltekit-tailwind/*.js)"
+    ]
+  }
+}
