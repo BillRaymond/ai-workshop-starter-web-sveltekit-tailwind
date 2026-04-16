@@ -27,7 +27,8 @@
       "extensions": [
         "svelte.svelte-vscode",
         "bradlc.vscode-tailwindcss",
-        "ms-vscode-remote.remote-containers"
+        "anthropic.claude-code",
+        "openai.chatgpt"
       ]
     }
   }
