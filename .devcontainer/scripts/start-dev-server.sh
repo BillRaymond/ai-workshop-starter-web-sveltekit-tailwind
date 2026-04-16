@@ -30,7 +30,7 @@ fi
 echo "$APP_PORT" > "$PORT_FILE"
 echo "Starting SvelteKit dev server on port $APP_PORT"
 
-nohup npm run dev -- --host 0.0.0.0 --port "$APP_PORT" >/tmp/sveltekit-dev.log 2>&1 &
+setsid npm run dev -- --host 0.0.0.0 --port "$APP_PORT" >/tmp/sveltekit-dev.log 2>&1 &
 
 echo "Waiting for SvelteKit dev server to be ready on port $APP_PORT..."
 for i in $(seq 1 60); do
