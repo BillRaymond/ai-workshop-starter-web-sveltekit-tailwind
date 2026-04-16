@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-APP_PORT=""
+PORT_FILE="/tmp/sveltekit-dev.port"
 
+# If we already started a server and it's still listening, don't start another.
+# This handles postAttachCommand running after postStartCommand.
+if [[ -f "$PORT_FILE" ]]; then
+  saved_port=$(cat "$PORT_FILE")
+  if (echo > /dev/tcp/127.0.0.1/"$saved_port") 2>/dev/null; then
+    echo "Dev server already running on port $saved_port"
+    exit 0
+  fi
+fi
+
+# Find a free port using /dev/tcp (no dependency on lsof)
+APP_PORT=""
 for port in $(seq 5173 5190); do
-  if ! lsof -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; then
+  if ! (echo > /dev/tcp/127.0.0.1/"$port") 2>/dev/null; then
     APP_PORT="$port"
     break
   fi
@@ -15,12 +27,8 @@ if [[ -z "$APP_PORT" ]]; then
   exit 1
 fi
 
+echo "$APP_PORT" > "$PORT_FILE"
 echo "Starting SvelteKit dev server on port $APP_PORT"
-
-if pgrep -f "vite.*--port $APP_PORT" >/dev/null 2>&1; then
-  echo "Dev server already running on port $APP_PORT"
-  exit 0
-fi
 
 nohup npm run dev -- --host 0.0.0.0 --port "$APP_PORT" >/tmp/sveltekit-dev.log 2>&1 &
 
