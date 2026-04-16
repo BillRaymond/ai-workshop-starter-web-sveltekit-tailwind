@@ -34,18 +34,9 @@
 					'-=0.35'
 				);
 
-			gsap.to('.js-weather-sun', {
-				scale: 1.06,
-				duration: 2.1,
-				ease: 'sine.inOut',
-				repeat: -1,
-				yoyo: true,
-				transformOrigin: 'center'
-			});
-
-			gsap.to('.js-weather-rays', {
-				rotate: 10,
-				duration: 7,
+			gsap.to('.js-weather-sun, .js-weather-rays', {
+				rotate: 360,
+				duration: 18,
 				ease: 'none',
 				repeat: -1,
 				transformOrigin: 'center'
