@@ -43,9 +43,9 @@ The container should:
 - start the local dev server automatically
 - forward the SvelteKit development port in VS Code
 
-The Dev Container should **not** manually mount the host `.gitconfig` file.
+The Dev Container should not manually mount the host `.gitconfig` file.
 
-VS Code Dev Containers already provide built-in support for reusing local Git configuration and credentials inside the container. The official documentation says the extension automatically copies the local `.gitconfig` into the container on startup, and that users who have not configured Git locally may need to run `git config --global user.name` and `git config --global user.email` on the host machine. :contentReference[oaicite:1]{index=1}
+VS Code Dev Containers already provide built-in support for reusing local Git configuration and credentials inside the container.
 
 ## Required Dev Container Configuration
 
