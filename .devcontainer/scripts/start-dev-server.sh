@@ -24,5 +24,15 @@ fi
 
 nohup npm run dev -- --host 0.0.0.0 --port "$APP_PORT" >/tmp/sveltekit-dev.log 2>&1 &
 
-echo "SvelteKit dev server started on port $APP_PORT"
+echo "Waiting for SvelteKit dev server to be ready on port $APP_PORT..."
+for i in $(seq 1 60); do
+  if (echo > /dev/tcp/127.0.0.1/"$APP_PORT") 2>/dev/null; then
+    echo "SvelteKit dev server is ready on port $APP_PORT"
+    echo "Log file: /tmp/sveltekit-dev.log"
+    exit 0
+  fi
+  sleep 1
+done
+
+echo "Warning: timed out waiting for dev server on port $APP_PORT"
 echo "Log file: /tmp/sveltekit-dev.log"
