@@ -47,6 +47,30 @@ The Dev Container should not manually mount the host `.gitconfig` file.
 
 VS Code Dev Containers already provide built-in support for reusing local Git configuration and credentials inside the container.
 
+## Windows Host File Watching
+
+When the Dev Container runs on a Windows host, the project files live on the Windows filesystem and are bind-mounted into the Linux container. In this configuration, the Linux kernel does not receive inotify events for changes made from the Windows side, so Vite's default file watcher misses them. The dev server keeps serving stale output until it is restarted.
+
+Checking `process.platform` inside the container is not sufficient — it always reports `linux` regardless of the host OS.
+
+To detect a Windows host, this template uses VS Code's local environment variable expansion to pass the host's `OS` environment variable into the container:
+
+```json
+"remoteEnv": { "HOST_OS": "${localEnv:OS}" }
+```
+
+On Windows, `OS` is set to `Windows_NT` by the operating system. On macOS and Linux hosts the variable is unset, so `HOST_OS` will be empty inside the container.
+
+`vite.config.ts` reads this variable and enables polling only when needed:
+
+```ts
+const usePolling = process.env.HOST_OS === 'Windows_NT';
+// ...
+watch: usePolling ? { usePolling: true, interval: 100 } : undefined
+```
+
+This keeps the default, efficient inotify-based watching on macOS and Linux hosts while enabling polling only for Windows users who need it.
+
 ## Required Dev Container Configuration
 
 Your `.devcontainer/devcontainer.json` should follow this pattern:
@@ -59,6 +83,9 @@ Your `.devcontainer/devcontainer.json` should follow this pattern:
     "target": "dev"
   },
   "remoteUser": "node",
+  "remoteEnv": {
+    "HOST_OS": "${localEnv:OS}"
+  },
   "updateContentCommand": "npm install",
   "postStartCommand": "bash .devcontainer/scripts/start-dev-server.sh",
   "postAttachCommand": "bash .devcontainer/scripts/start-dev-server.sh",

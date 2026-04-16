@@ -5,6 +5,9 @@
     "target": "dev"
   },
   "remoteUser": "node",
+  "remoteEnv": {
+    "HOST_OS": "${localEnv:OS}"
+  },
   "updateContentCommand": "npm install",
   "postStartCommand": "bash .devcontainer/scripts/start-dev-server.sh",
   "postAttachCommand": "bash .devcontainer/scripts/start-dev-server.sh",

@@ -133,6 +133,7 @@ npm run docker:dev:run
 - If you do not see the running site, check the VS Code Ports view.
 - If the container gets into a bad state, try `Dev Containers: Rebuild Container`.
 - Manual deploys are available through the `Deploy to GitHub Pages` workflow if you want to publish before your first push to the default branch.
+- **On Windows, source changes may not appear in the browser automatically.** When a Dev Container runs on a Windows host, the Linux container does not receive file-change notifications from the Windows filesystem, so Vite's watcher can miss edits. This template detects a Windows host via `HOST_OS` (set in `devcontainer.json`) and enables Vite polling automatically. If hot-reload stops working, rebuild the container to pick up the latest configuration.
 
 ## Technical Notes
 
