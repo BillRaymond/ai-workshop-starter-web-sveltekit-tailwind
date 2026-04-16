@@ -1,6 +1,6 @@
 # SvelteKit + Tailwind GitHub Pages Template
 
-This repository is a GitHub template for building and publishing a static site with SvelteKit, Tailwind CSS, VS Code Dev Containers, and GitHub Pages.
+This repository is a GitHub template for building and publishing a static site with SvelteKit, Tailwind CSS, GSAP, VS Code Dev Containers, and GitHub Pages.
 
 It is designed to be forked, renamed, and repurposed without carrying forward workshop branding or repo-specific deployment assumptions.
 
@@ -28,11 +28,12 @@ Created by Bill Raymond, owner of [Cambermast LLC](https://cambermast.com), with
 ## What This Template Includes
 
 - SvelteKit with the static adapter configured for GitHub Pages
-- Svelte 5, Tailwind CSS 4, Vite, and Node 22
+- Svelte 5, Tailwind CSS 4, GSAP, Vite, and Node 22
 - A VS Code Dev Container workflow for consistent local development
 - A dedicated CI workflow for build and type-check validation on branches and pull requests
 - GitHub Actions deployment to GitHub Pages
 - Dynamic dev-port fallback behavior that works well in VS Code and containers
+- A shared `$lib` GSAP helper plus a VS Code snippet for Svelte animations
 
 ## One-Time Setup
 
@@ -118,6 +119,14 @@ npm run dev
 npm run build
 npm run check
 ```
+
+## GSAP
+
+GSAP is included as a first-class dependency in this template.
+
+- Import `withGsapContext` from `$lib` for Svelte-friendly setup and cleanup.
+- The starter home page already uses this pattern as a working example.
+- In VS Code, use the `gsap-svelte` snippet inside a `.svelte` file to scaffold a new animation block quickly.
 
 If you want to build and run the dev image directly outside VS Code:
 

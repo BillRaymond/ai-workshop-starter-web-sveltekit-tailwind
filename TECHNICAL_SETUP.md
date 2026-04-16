@@ -9,6 +9,7 @@ This repository is a neutral SvelteKit starter built for a simple workshop workf
 - Svelte 5
 - `@sveltejs/adapter-static`
 - Tailwind CSS 4
+- GSAP
 - Vite
 - npm
 - VS Code Dev Containers
@@ -20,6 +21,7 @@ This repository is a neutral SvelteKit starter built for a simple workshop workf
 This template is designed for:
 
 - static SvelteKit websites
+- animation-heavy landing pages and microsites
 - local development in VS Code Dev Containers
 - publishing to GitHub Pages
 - beginner-friendly workshop use
@@ -46,6 +48,25 @@ The container should:
 The Dev Container should not manually mount the host `.gitconfig` file.
 
 VS Code Dev Containers already provide built-in support for reusing local Git configuration and credentials inside the container.
+
+## GSAP Integration
+
+GSAP is installed as a regular runtime dependency so local development, CI, and GitHub Pages builds all use the same package graph.
+
+For Svelte components, this template exposes a small helper from `$lib`:
+
+```ts
+import { withGsapContext } from '$lib';
+```
+
+The helper:
+
+- runs only in the browser
+- respects `prefers-reduced-motion`
+- scopes selectors to the current component root
+- reverts the GSAP context automatically when the component unmounts
+
+The starter page in `src/routes/+page.svelte` demonstrates the recommended pattern, and `.vscode/gsap.code-snippets` adds a `gsap-svelte` snippet for quick authoring in VS Code.
 
 ## Windows Host File Watching
 
